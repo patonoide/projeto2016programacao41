@@ -1,0 +1,20 @@
+SMAP
+upd_jsp.java
+JSP
+*S JSP
+*F
++ 0 upd.jsp
+admin/jogador/upd.jsp
++ 1 cabecalho.jsp
+admin/jogador/../cabecalho.jsp
++ 2 rodape.jsp
+admin/jogador/../rodape.jsp
+*L
+1,2:52
+1#1,59:54
+3#0,2:112
+6,7:115
+12,55:122
+1#2,26:176
+66#0,4:201
+*E
