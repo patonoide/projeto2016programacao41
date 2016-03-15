@@ -3,15 +3,24 @@ upd_jsp.java
 JSP
 *S JSP
 *F
-+ 0 cabecalho.jsp
-admin/pergunta/../cabecalho.jsp
-+ 1 upd.jsp
++ 0 upd.jsp
 admin/pergunta/upd.jsp
++ 1 cabecalho.jsp
+admin/pergunta/../cabecalho.jsp
 + 2 rodape.jsp
 admin/pergunta/../rodape.jsp
 *L
-1,58:50
-1#1,46:107
-1#2,26:152
-46#1,4:177
+1,7:56
+1#1,59:62
+7#0:120
+11,15:124
+25,21:139
+46,6:161
+51,2:167
+53:169,7
+54:176
+55,3:178
+57,58:181
+1#2,26:238
+114#0,4:263
 *E

@@ -2,7 +2,7 @@
 <%@page import="dao.CategoriaDAO"%>
 <%@include file="../cabecalho.jsp"%>
 <% //pegara chave primaria
-    Integer id =Integer.parseInt(request.getParameter("txtId"));
+    Integer id = Integer.parseInt(request.getParameter("idcategoria"));
     //busco o registro pela chave no banco de dados
     CategoriaDAO dao = new CategoriaDAO();
     //Para chamar pela chave usaremos o método criado
@@ -18,15 +18,10 @@
                     primeira div -- área que ocupará o campo de formulário
                     segunda div -- campo de texto e label 
                 -->
-                <div class="mdl-cell--12-col"> 
-                    <label>Id</label><div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" required  id="txtId" />
-                        <label class="mdl-textfield__label" for="txtId">Id</label>
-                    </div>
-                </div>
-                <label>Nome</label><div class="mdl-cell--12-col"> 
+                 <input type="hidden" name="txtId" value="<%=id%>" />
+                <label></label><div class="mdl-cell--12-col"> 
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" required  id="txtNome" />
+                        <input class="mdl-textfield__input" type="text" required  name="txtNome" value="<%=obj.getNome()%>"/>
                         <label class="mdl-textfield__label" for="txtNome">Nome</label>
                     </div>
                 </div>

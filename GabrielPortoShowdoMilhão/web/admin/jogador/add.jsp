@@ -3,7 +3,7 @@
 <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
     <div class="mdl-card mdl-cell mdl-cell--12-col">
         <div class="mdl-card__supporting-text">
-            <h4>Categoria - Cadastrar</h4>
+            <h4>Jogador - Cadastrar</h4>
             <form action="add-ok.jsp" method="post">
                 <!-- 
                     primeira div -- área que ocupará o campo de formulário
@@ -11,26 +11,26 @@
                 -->
                 <div class="mdl-cell--12-col"> 
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" required  id="txtLogin" />
+                        <input class="mdl-textfield__input" type="text" required  name="txtLogin" />
                         <label class="mdl-textfield__label" for="txtLogin">Login</label>
                     </div>
                 </div>
                 <div class="mdl-cell--12-col"> 
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" required  id="txtSenha" />
+                        <input class="mdl-textfield__input" type="text" required  name="txtSenha" />
                         <label class="mdl-textfield__label" for="txtSenha">Senha</label>
                     </div>
                 </div>
                 <div class="mdl-cell--12-col"> 
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" required  id="txtEmail" />
+                        <input class="mdl-textfield__input" type="text" required  name="txtEmail" />
                         <label class="mdl-textfield__label" for="txtEmail">E-mail</label>
                     </div>
                 </div>
                
                 <div class="mdl-cell--12-col"> 
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" required  id="txtNome" />
+                        <input class="mdl-textfield__input" type="text" required  name="txtNome" />
                         <label class="mdl-textfield__label" for="txtNome">Foto</label>
                     </div>
                 </div>

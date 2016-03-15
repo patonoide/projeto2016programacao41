@@ -95,7 +95,7 @@ public class Categoria implements Serializable {
 
     @Override
     public String toString() {
-        return "modelo.Categoria[ id=" + id + " ]";
+        return  + id + "-" +nome;
     }
     
 }

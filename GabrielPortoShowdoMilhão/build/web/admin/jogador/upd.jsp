@@ -13,37 +13,37 @@
 <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
     <div class="mdl-card mdl-cell mdl-cell--12-col">
         <div class="mdl-card__supporting-text">
-            <h4>Categoria - Atualizar</h4>
-            <form action="upd-ok.jsp" method="post">
+            <h4>Jogador - Atualizar</h4>
+            <form action="upd-ok.jsp">
                 <!-- 
                     primeira div -- área que ocupará o campo de formulário
                     segunda div -- campo de texto e label 
                 -->
                 <div class="mdl-cell--12-col"> 
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" required  id="txtNome" />
-                        <label class="mdl-textfield__label" for="txtNome">Nome</label>
+                        <input class="mdl-textfield__input" type="text" required  name="txtLogin" value="<%=obj.getLogin()%>"/>
+                        <label class="mdl-textfield__label" for="txtLogin">Login</label>
                     </div>
                 
                 </div>
                 <div class="mdl-cell--12-col"> 
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" required  id="txtSenha" />
+                        <input class="mdl-textfield__input" type="password" required  name="txtSenha" value="<%=obj.getSenha()%>"/>
                         <label class="mdl-textfield__label" for="txtSenha">Senha</label>
                     </div>
                 
                 </div>
                 <div class="mdl-cell--12-col"> 
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" required  id="txtEmail" />
+                        <input class="mdl-textfield__input" type="text" required  name="txtEmail" value="<%=obj.getEmail()%>" />
                         <label class="mdl-textfield__label" for="txtEmail">Email</label>
                     </div>
                 
                 </div>
                 <div class="mdl-cell--12-col"> 
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" required  id="txtNome" />
-                        <label class="mdl-textfield__label" for="txtNome">Nome</label>
+                        <input class="mdl-textfield__input" type="text"   name="txtNome" />
+                        <label class="mdl-textfield__label" for="txtNome">Foto</label>
                     </div>
                 
                 </div>

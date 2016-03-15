@@ -142,7 +142,7 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<section class=\"section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp\">\n");
       out.write("    <div class=\"mdl-card mdl-cell mdl-cell--12-col\">\n");
       out.write("        <div class=\"mdl-card__supporting-text\">\n");
-      out.write("            <h4>Categoria</h4>\n");
+      out.write("            <h4>Jogador</h4>\n");
       out.write("            <!-- Colored mini FAB button -->\n");
       out.write("            <div class=\"direita\">\n");
       out.write("                <a href=\"add.jsp\">\n");
@@ -155,14 +155,17 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <table class=\"mdl-data-table mdl-js-data-table\">\n");
       out.write("                <thead>\n");
       out.write("                    <tr>\n");
+      out.write("\n");
+      out.write("                        <th>Login:</th>\n");
+      out.write("                        <th>E-mail</th>\n");
+      out.write("                        <th>Senha</th>\n");
+      out.write("                        <th>Ações</th>\n");
+      out.write("                    </tr>\n");
+      out.write("                    ");
 
                     for (Jogador jogador:jogadores) {
                 
       out.write("\n");
-      out.write("                        <th>Login:</th>\n");
-      out.write("                        <th>E-mail</th>\n");
-      out.write("                        <th>Ações</th>\n");
-      out.write("                    </tr>\n");
       out.write("                </thead>\n");
       out.write("                <tbody>\n");
       out.write("                    <tr>\n");
@@ -178,6 +181,8 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            <!-- \n");
       out.write("                                Atualizar \n");
       out.write("                            -->\n");
+      out.write("                    \n");
+      out.write("                <td>\n");
       out.write("                            <div id=\"ttupd\" class=\"icon material-icons\">\n");
       out.write("                                <i class=\"material-icons\"><a href=\"upd.jsp?login=");
 jogador.getLogin();
@@ -186,9 +191,11 @@ jogador.getLogin();
       out.write("                            <div class=\"mdl-tooltip\" for=\"ttupd\">\n");
       out.write("                                Atualizar\n");
       out.write("                            </div>\n");
+      out.write("                </td>\n");
       out.write("                            <!-- \n");
       out.write("                                Excluir \n");
       out.write("                            -->\n");
+      out.write("                            <td>\n");
       out.write("                            <div id=\"ttdel\" class=\"icon material-icons\">\n");
       out.write("                                <i class=\"material-icons\"><a href=\"del-ok.jsp?login=");
 jogador.getLogin();

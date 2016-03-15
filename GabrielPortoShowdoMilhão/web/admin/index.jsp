@@ -20,7 +20,7 @@
 
 <form action="#">
   <div class="mdl-textfield mdl-js-textfield">
-    <input class="mdl-textfield__input" type="text" id="sample1">
+    <input class="mdl-textfield__input" type="password" id="sample1">
     <label class="mdl-textfield__label" for="sample1">Senha</label>
   </div>
 </form>

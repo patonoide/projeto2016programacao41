@@ -30,7 +30,7 @@
 <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
     <div class="mdl-card mdl-cell mdl-cell--12-col">
         <div class="mdl-card__supporting-text">
-            <h4>Categoria</h4>
+            <h4>Pergunta</h4>
             <!-- Colored mini FAB button -->
             <div class="direita">
                 <a href="add.jsp">
@@ -56,18 +56,39 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    
                          <%
                     for (Pergunta pergunta:perguntas) {
                 %>
-                        <th><% pergunta.getId(); %></th>
-                        <th><%pergunta.getEnunciado()</th>
+                <tr>
+                        <th><%=pergunta.getId() %></th>
+                <tr>
+                        <th><%=pergunta.getEnunciado()%></th>
+                                        <tr>
+
+                        <th><%=pergunta.getCategoria()%></th>
+                                        <tr>
+
+                        <th><%=pergunta.getCerta()%></th>                <tr>
+
+                        <th><%=pergunta.getNivel()%></th>                <tr>
+
+                        <th><%=pergunta.getA()%></th>
+                  <tr>
+                      <th><%=pergunta.getB()%></th>                <tr>
+
+                        <th><%=pergunta.getC()%></th>                <tr>
+
+                        <th><%=pergunta.getD()%></th>                <tr>
+
+                         
+                        <th></th>
                         <td>
                             <!-- 
                                 Atualizar 
                             -->
                             <div id="ttupd" class="icon material-icons">
-                                <i class="material-icons"><a href="upd.jsp">update</a></i>
+                                <i class="material-icons"><a href="upd.jsp?idpergunta=<%=pergunta.getId()%>">update</a></i>
                             </div>
                             <div class="mdl-tooltip" for="ttupd">
                                 Atualizar
@@ -76,7 +97,7 @@
                                 Excluir 
                             -->
                             <div id="ttdel" class="icon material-icons">
-                                <i class="material-icons"><a href="del-ok.jsp">delete</a></i>
+                                <i class="material-icons"><a href="del-ok.jsp?idpergunta=<%=pergunta.getId()%>">delete</a></i>
                             </div>
                             <div class="mdl-tooltip" for="ttdel">
                                 Excluir

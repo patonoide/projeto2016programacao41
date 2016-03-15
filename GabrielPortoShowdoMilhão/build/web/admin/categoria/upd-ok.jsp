@@ -17,7 +17,7 @@
     
     //atualizar demais informações enviadas
     obj.setNome(nome);
-    obj.setId(id);
+   
     
     dao.alterar(obj);
 

@@ -1,4 +1,4 @@
-package org.apache.jsp.admin.categoria;
+package org.apache.jsp.admin.pergunta;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -7,7 +7,7 @@ import modelo.Categoria;
 import java.util.List;
 import dao.CategoriaDAO;
 
-public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class add_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -16,8 +16,8 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   static {
     _jspx_dependants = new java.util.ArrayList<String>(2);
-    _jspx_dependants.add("/admin/categoria/../cabecalho.jsp");
-    _jspx_dependants.add("/admin/categoria/../rodape.jsp");
+    _jspx_dependants.add("/admin/pergunta/../cabecalho.jsp");
+    _jspx_dependants.add("/admin/pergunta/../rodape.jsp");
   }
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
@@ -50,7 +50,6 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write("\n");
       out.write("\n");
       out.write("\n");
       out.write("\n");
@@ -112,103 +111,99 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("      </header>\n");
       out.write("      <main class=\"mdl-layout__content\">\n");
       out.write("        <div class=\"mdl-layout__tab-panel is-active\" id=\"overview\">\n");
-      out.write("\n");
-      out.write("<!-- gambiarra pra alinhar o botão a esquerda-->\n");
-      out.write(" ");
+      out.write('\n');
 
-    CategoriaDAO dao = new CategoriaDAO();
-    
-    
-    List <Categoria> categorias;
-
-    if(request.getParameter("txtFiltro")!=null && request.getParameter("txtFiltro")!="")
-    {
-        String txtFiltro = request.getParameter("txtFiltro");
-        categorias = dao.listar(txtFiltro);
-    }
-    else
-    {
-        categorias = dao.listar();
-    }
+CategoriaDAO cDAO = new CategoriaDAO();
+    List<Categoria> cLista = cDAO.listar();
     
       out.write("\n");
-      out.write("<style>\n");
-      out.write("   \n");
-      out.write("    .direita\n");
-      out.write("            {\n");
-      out.write("                text-align: right;\n");
-      out.write("                padding-right: 10%;\n");
-      out.write("                \n");
-      out.write("            }\n");
-      out.write("</style>\n");
       out.write("<section class=\"section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp\">\n");
       out.write("    <div class=\"mdl-card mdl-cell mdl-cell--12-col\">\n");
       out.write("        <div class=\"mdl-card__supporting-text\">\n");
-      out.write("            <h4>Categoria</h4>\n");
-      out.write("            <!-- Colored mini FAB button -->\n");
-      out.write("            <div class=\"direita\">\n");
-      out.write("                <a href=\"add.jsp\">\n");
-      out.write("                    <button class=\"mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored\">\n");
-      out.write("                         <i class=\"material-icons\">add</i>\n");
-      out.write("                    </button>  \n");
-      out.write("                </a>\n");
-      out.write("            </div>\n");
-      out.write("\n");
-      out.write("            <table class=\"mdl-data-table mdl-js-data-table\">\n");
-      out.write("                <thead>\n");
-      out.write("                    <tr>\n");
-      out.write(" ");
-
-                    for (Categoria categoria:categorias) {
+      out.write("            <h4>Pergunta - Cadastrar</h4>\n");
+      out.write("            <form action=\"add-ok.jsp\" method=\"post\">\n");
+      out.write("                <!-- \n");
+      out.write("                    primeira div -- área que ocupará o campo de formulário\n");
+      out.write("                    segunda div -- campo de texto e label \n");
+      out.write("                -->\n");
+      out.write("                \n");
+      out.write("                <div class=\"mdl-cell--12-col\"> \n");
+      out.write("                    <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n");
+      out.write("                        <input class=\"mdl-textfield__input\" type=\"text\" required  name=\"txtEnunciado\" />\n");
+      out.write("                        <label class=\"mdl-textfield__label\" for=\"txtNome\">Enunciado</label>\n");
+      out.write("                    </div>\n");
+      out.write("                  \n");
+      out.write("                <div class=\"mdl-cell--12-col\"> \n");
+      out.write("                     <div class=\"mdl-select mdl-js-select mdl-select--floating-label\"> \n");
+      out.write("        \n");
+      out.write("                          \n");
+      out.write("                         <select class=\"mdl-select__input\" id=\"professsion\" name=\"selCategoria\">\n");
+      out.write("                            ");
+                            
+                    for (Categoria c : cLista) {
                 
       out.write("\n");
-      out.write("                        <th>ID</th>\n");
-      out.write("                        <th>Nome</th>\n");
-      out.write("                        <th>Ações</th>\n");
-      out.write("                    </tr>\n");
-      out.write("                </thead>\n");
-      out.write("                <tbody>\n");
-      out.write("                    <tr>\n");
-      out.write("                        <th>");
-      out.print(categoria.getId());
-      out.write("</th>\n");
-      out.write("                        <th>");
-      out.print(categoria.getNome());
-      out.write("</th>\n");
-      out.write("                        <td> <div id=\"ttupd\" class=\"icon material-icons\">\n");
-      out.write("                                <i class=\"material-icons\"><a href=\"upd.jsp?idcategoria=");
-      out.print(categoria.getId());
-      out.write("\">update</a></i>\n");
-      out.write("                            </div>\n");
-      out.write("                            <div class=\"mdl-tooltip\" for=\"ttupd\">\n");
-      out.write("                                Atualizar\n");
-      out.write("                            </div>\n");
-      out.write("                        </td><td>\n");
-      out.write("                        <div id=\"ttdel\" class=\"icon material-icons\">\n");
-      out.write("                              <i class=\"material-icons\"><a href=\"del-ok.jsp?idcategoria=");
-      out.print(categoria.getId() );
-      out.write("\">delete</a></i>\n");
-      out.write("                            </div>\n");
-      out.write("                            <div class=\"mdl-tooltip\" for=\"ttdel\">\n");
-      out.write("                                Excluir\n");
-      out.write("                            </div>\n");
-      out.write("                    </td>\n");
-      out.write("                            <!-- \n");
-      out.write("                                Atualizar \n");
-      out.write("                            -->\n");
-      out.write("                           \n");
-      out.write("                            <!-- \n");
-      out.write("                                Excluir \n");
-      out.write("                            -->\n");
-      out.write("                            \n");
-      out.write("                     \n");
-      out.write("                       \n");
-      out.write("                    </tr>\n");
-      out.write("                    ");
- }; 
+      out.write("                             <option value=\"");
+      out.print(c.getId());
+      out.write('"');
+      out.write('>');
+      out.print(c);
+      out.write("</option> \n");
+      out.write("               ");
+} 
+      out.write("          \n");
+      out.write("                         </select> \n");
+      out.write("    \n");
+      out.write("                         <label class=\"mdl-select__label\" for=\"professsion\">Categoria</label> \n");
+      out.write("                     </div> \n");
+      out.write("                 </div> \n");
       out.write("\n");
-      out.write("                </tbody>\n");
-      out.write("            </table>   \n");
+      out.write("                <div class=\"mdl-cell--12-col\"> \n");
+      out.write("                    <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n");
+      out.write("                        <input class=\"mdl-textfield__input\" type=\"text\" required  name=\"txtRc\" />\n");
+      out.write("                        <label class=\"mdl-textfield__label\" for=\"txtNome\">Resposta Certa</label>\n");
+      out.write("                    </div>\n");
+      out.write("                </div><div class=\"mdl-cell--12-col\"> \n");
+      out.write("                    <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n");
+      out.write("                        <input class=\"mdl-textfield__input\" type=\"text\" required  name=\"txtNivel\" />\n");
+      out.write("                        <label class=\"mdl-textfield__label\" for=\"txtNome\">Nivel</label>\n");
+      out.write("                    </div>\n");
+      out.write("                </div>\n");
+      out.write("                <div class=\"mdl-cell--12-col\"> \n");
+      out.write("                    <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n");
+      out.write("                        <input class=\"mdl-textfield__input\" type=\"text\" required  name=\"txtA\" />\n");
+      out.write("                        <label class=\"mdl-textfield__label\" for=\"txtNome\">Resposta A</label>\n");
+      out.write("                    </div>\n");
+      out.write("                </div>\n");
+      out.write("                <div class=\"mdl-cell--12-col\"> \n");
+      out.write("                    <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n");
+      out.write("                        <input class=\"mdl-textfield__input\" type=\"text\" required  name=\"txtB\" />\n");
+      out.write("                        <label class=\"mdl-textfield__label\" for=\"txtNome\">Resposta B</label>\n");
+      out.write("                    </div>\n");
+      out.write("                </div>\n");
+      out.write("                <div class=\"mdl-cell--12-col\"> \n");
+      out.write("                    <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n");
+      out.write("                        <input class=\"mdl-textfield__input\" type=\"text\" required  name=\"txtC\" />\n");
+      out.write("                        <label class=\"mdl-textfield__label\" for=\"txtNome\">Resposta C</label>\n");
+      out.write("                    </div>\n");
+      out.write("                </div>\n");
+      out.write("                <div class=\"mdl-cell--12-col\"> \n");
+      out.write("                    <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n");
+      out.write("                        <input class=\"mdl-textfield__input\" type=\"text\" required  name=\"txtD\" />\n");
+      out.write("                        <label class=\"mdl-textfield__label\" for=\"txtNome\">Resposta D</label>\n");
+      out.write("                    </div>\n");
+      out.write("                </div>\n");
+      out.write("                \n");
+      out.write("                <div class=\"mdl-cell--12-col\">\n");
+      out.write("                    \n");
+      out.write("                    <button type=\"submit\" class=\"mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored\">\n");
+      out.write("                    <i class=\"material-icons\">save</i></button>\n");
+      out.write("                    <button type=\"reset\" class=\"mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored\">\n");
+      out.write("                    <i class=\"material-icons\">clear</i></button>\n");
+      out.write("                    \n");
+      out.write("                    \n");
+      out.write("                </div>\n");
+      out.write("            </form>\n");
       out.write("        </div>\n");
       out.write("\n");
       out.write("    </div>\n");
@@ -240,8 +235,9 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("</html>\n");
       out.write("\n");
       out.write("\n");
-      out.write('\n');
-      out.write('\n');
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;

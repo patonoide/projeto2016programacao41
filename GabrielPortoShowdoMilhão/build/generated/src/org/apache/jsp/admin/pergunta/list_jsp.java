@@ -1,11 +1,11 @@
-package org.apache.jsp.admin.categoria;
+package org.apache.jsp.admin.pergunta;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-import modelo.Categoria;
+import modelo.Pergunta;
 import java.util.List;
-import dao.CategoriaDAO;
+import dao.PerguntaDAO;
 
 public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -16,8 +16,8 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   static {
     _jspx_dependants = new java.util.ArrayList<String>(2);
-    _jspx_dependants.add("/admin/categoria/../cabecalho.jsp");
-    _jspx_dependants.add("/admin/categoria/../rodape.jsp");
+    _jspx_dependants.add("/admin/pergunta/../cabecalho.jsp");
+    _jspx_dependants.add("/admin/pergunta/../rodape.jsp");
   }
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
@@ -50,7 +50,6 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write("\n");
       out.write("\n");
       out.write("\n");
       out.write("\n");
@@ -114,26 +113,25 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <div class=\"mdl-layout__tab-panel is-active\" id=\"overview\">\n");
       out.write("\n");
       out.write("<!-- gambiarra pra alinhar o botão a esquerda-->\n");
-      out.write(" ");
+      out.write("<style>\n");
+      out.write("    ");
 
-    CategoriaDAO dao = new CategoriaDAO();
+    PerguntaDAO dao = new PerguntaDAO();
     
     
-    List <Categoria> categorias;
+    List <Pergunta> perguntas;
 
     if(request.getParameter("txtFiltro")!=null && request.getParameter("txtFiltro")!="")
     {
         String txtFiltro = request.getParameter("txtFiltro");
-        categorias = dao.listar(txtFiltro);
+        perguntas = dao.listar(txtFiltro);
     }
     else
     {
-        categorias = dao.listar();
+        perguntas = dao.listar();
     }
     
       out.write("\n");
-      out.write("<style>\n");
-      out.write("   \n");
       out.write("    .direita\n");
       out.write("            {\n");
       out.write("                text-align: right;\n");
@@ -144,7 +142,7 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<section class=\"section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp\">\n");
       out.write("    <div class=\"mdl-card mdl-cell mdl-cell--12-col\">\n");
       out.write("        <div class=\"mdl-card__supporting-text\">\n");
-      out.write("            <h4>Categoria</h4>\n");
+      out.write("            <h4>Pergunta</h4>\n");
       out.write("            <!-- Colored mini FAB button -->\n");
       out.write("            <div class=\"direita\">\n");
       out.write("                <a href=\"add.jsp\">\n");
@@ -157,56 +155,96 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <table class=\"mdl-data-table mdl-js-data-table\">\n");
       out.write("                <thead>\n");
       out.write("                    <tr>\n");
-      out.write(" ");
-
-                    for (Categoria categoria:categorias) {
-                
       out.write("\n");
       out.write("                        <th>ID</th>\n");
-      out.write("                        <th>Nome</th>\n");
-      out.write("                        <th>Ações</th>\n");
+      out.write("                        <th>Enunciado</th>\n");
+      out.write("                        <th>Categoria</th>\n");
+      out.write("                        <th>Resposta Certa</th>\n");
+      out.write("                        <th>Nivel</th>\n");
+      out.write("                        <th>Resposta A</th>\n");
+      out.write("                        <th>Resposta B</th>\n");
+      out.write("                        <th>Resposta C</th>\n");
+      out.write("                        <th>Resposta D</th>\n");
       out.write("                    </tr>\n");
       out.write("                </thead>\n");
       out.write("                <tbody>\n");
-      out.write("                    <tr>\n");
+      out.write("                    \n");
+      out.write("                         ");
+
+                    for (Pergunta pergunta:perguntas) {
+                
+      out.write("\n");
+      out.write("                <tr>\n");
       out.write("                        <th>");
-      out.print(categoria.getId());
+      out.print(pergunta.getId() );
       out.write("</th>\n");
+      out.write("                <tr>\n");
       out.write("                        <th>");
-      out.print(categoria.getNome());
+      out.print(pergunta.getEnunciado());
       out.write("</th>\n");
-      out.write("                        <td> <div id=\"ttupd\" class=\"icon material-icons\">\n");
-      out.write("                                <i class=\"material-icons\"><a href=\"upd.jsp?idcategoria=");
-      out.print(categoria.getId());
+      out.write("                                        <tr>\n");
+      out.write("\n");
+      out.write("                        <th>");
+      out.print(pergunta.getCategoria());
+      out.write("</th>\n");
+      out.write("                                        <tr>\n");
+      out.write("\n");
+      out.write("                        <th>");
+      out.print(pergunta.getCerta());
+      out.write("</th>                <tr>\n");
+      out.write("\n");
+      out.write("                        <th>");
+      out.print(pergunta.getNivel());
+      out.write("</th>                <tr>\n");
+      out.write("\n");
+      out.write("                        <th>");
+      out.print(pergunta.getA());
+      out.write("</th>\n");
+      out.write("                  <tr>\n");
+      out.write("                      <th>");
+      out.print(pergunta.getB());
+      out.write("</th>                <tr>\n");
+      out.write("\n");
+      out.write("                        <th>");
+      out.print(pergunta.getC());
+      out.write("</th>                <tr>\n");
+      out.write("\n");
+      out.write("                        <th>");
+      out.print(pergunta.getD());
+      out.write("</th>                <tr>\n");
+      out.write("\n");
+      out.write("                         \n");
+      out.write("                        <th></th>\n");
+      out.write("                        <td>\n");
+      out.write("                            <!-- \n");
+      out.write("                                Atualizar \n");
+      out.write("                            -->\n");
+      out.write("                            <div id=\"ttupd\" class=\"icon material-icons\">\n");
+      out.write("                                <i class=\"material-icons\"><a href=\"upd.jsp?idpergunta=");
+      out.print(pergunta.getId());
       out.write("\">update</a></i>\n");
       out.write("                            </div>\n");
       out.write("                            <div class=\"mdl-tooltip\" for=\"ttupd\">\n");
       out.write("                                Atualizar\n");
       out.write("                            </div>\n");
-      out.write("                        </td><td>\n");
-      out.write("                        <div id=\"ttdel\" class=\"icon material-icons\">\n");
-      out.write("                              <i class=\"material-icons\"><a href=\"del-ok.jsp?idcategoria=");
-      out.print(categoria.getId() );
+      out.write("                            <!-- \n");
+      out.write("                                Excluir \n");
+      out.write("                            -->\n");
+      out.write("                            <div id=\"ttdel\" class=\"icon material-icons\">\n");
+      out.write("                                <i class=\"material-icons\"><a href=\"del-ok.jsp?idpergunta=");
+      out.print(pergunta.getId());
       out.write("\">delete</a></i>\n");
       out.write("                            </div>\n");
       out.write("                            <div class=\"mdl-tooltip\" for=\"ttdel\">\n");
       out.write("                                Excluir\n");
       out.write("                            </div>\n");
-      out.write("                    </td>\n");
-      out.write("                            <!-- \n");
-      out.write("                                Atualizar \n");
-      out.write("                            -->\n");
-      out.write("                           \n");
-      out.write("                            <!-- \n");
-      out.write("                                Excluir \n");
-      out.write("                            -->\n");
       out.write("                            \n");
-      out.write("                     \n");
-      out.write("                       \n");
-      out.write("                    </tr>\n");
+      out.write("                        </td>\n");
       out.write("                    ");
- }; 
+}
       out.write("\n");
+      out.write("                    </tr>\n");
+      out.write("                   \n");
       out.write("                </tbody>\n");
       out.write("            </table>   \n");
       out.write("        </div>\n");

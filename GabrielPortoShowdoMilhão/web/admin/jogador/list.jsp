@@ -30,7 +30,7 @@
 <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
     <div class="mdl-card mdl-cell mdl-cell--12-col">
         <div class="mdl-card__supporting-text">
-            <h4>Categoria</h4>
+            <h4>Jogador</h4>
             <!-- Colored mini FAB button -->
             <div class="direita">
                 <a href="add.jsp">
@@ -64,7 +64,7 @@
                     
                 <td>
                             <div id="ttupd" class="icon material-icons">
-                                <i class="material-icons"><a href="upd.jsp?login=<%jogador.getLogin();%>">update</a></i>
+                                <i class="material-icons"><a href="upd.jsp?login=<%=jogador.getLogin()%>">update</a></i>
                             </div>
                             <div class="mdl-tooltip" for="ttupd">
                                 Atualizar
@@ -75,7 +75,7 @@
                             -->
                             <td>
                             <div id="ttdel" class="icon material-icons">
-                                <i class="material-icons"><a href="del-ok.jsp?login=<%jogador.getLogin();%>">delete</a></i>
+                                <i class="material-icons"><a href="del-ok.jsp?login=<%=jogador.getLogin()%>">delete</a></i>
                             </div>
                             <div class="mdl-tooltip" for="ttdel">
                                 Excluir

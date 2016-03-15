@@ -45,43 +45,45 @@
             <table class="mdl-data-table mdl-js-data-table">
                 <thead>
                     <tr>
- <%
-                    for (Categoria categoria:categorias) {
-                %>
-                        <th>ID</th>
+                         <th>ID</th>
                         <th>Nome</th>
                         <th>Ações</th>
                     </tr>
+ <%
+                    for (Categoria categoria:categorias) {
+                %>
+                       
                 </thead>
                 <tbody>
                     <tr>
                         <th><%=categoria.getId()%></th>
                         <th><%=categoria.getNome()%></th>
-                        <td><a href="upd.jsp?idcategoria=<%=categoria.getId()%>">Editar</a>
-                        <a href="del-ok.jsp?idcliente=<%=categoria.getId()%>">Excluir</a>
-                    </td>
-                            <!-- 
-                                Atualizar 
-                            -->
-                            <div id="ttupd" class="icon material-icons">
-                                <i class="material-icons"><a href="upd.jsp?idcategoria=<%categoria.getId();%>">update</a></i>
+                        <td> <div id="ttupd" class="icon material-icons">
+                                <i class="material-icons"><a href="upd.jsp?idcategoria=<%=categoria.getId()%>">update</a></i>
                             </div>
                             <div class="mdl-tooltip" for="ttupd">
                                 Atualizar
                             </div>
-                            <!-- 
-                                Excluir 
-                            -->
-                            <div id="ttdel" class="icon material-icons">
-                              <i class="material-icons"><a href="del-ok.jsp?idcategoria=<%categoria.getId();%>">delete</a></i>
+                        </td><td>
+                        <div id="ttdel" class="icon material-icons">
+                              <i class="material-icons"><a href="del-ok.jsp?idcategoria=<%=categoria.getId() %>">delete</a></i>
                             </div>
                             <div class="mdl-tooltip" for="ttdel">
                                 Excluir
                             </div>
+                    </td>
+                            <!-- 
+                                Atualizar 
+                            -->
+                           
+                            <!-- 
+                                Excluir 
+                            -->
+                            
                      
                        
                     </tr>
-                    <% } %>
+                    <% }; %>
                 </tbody>
             </table>   
         </div>

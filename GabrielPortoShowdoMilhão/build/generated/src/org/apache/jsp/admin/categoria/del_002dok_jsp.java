@@ -4,10 +4,9 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 import modelo.Categoria;
-import java.util.List;
 import dao.CategoriaDAO;
 
-public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class del_002dok_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -50,7 +49,6 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write("\n");
       out.write("\n");
       out.write("\n");
       out.write("\n");
@@ -112,103 +110,44 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("      </header>\n");
       out.write("      <main class=\"mdl-layout__content\">\n");
       out.write("        <div class=\"mdl-layout__tab-panel is-active\" id=\"overview\">\n");
-      out.write("\n");
-      out.write("<!-- gambiarra pra alinhar o botão a esquerda-->\n");
-      out.write(" ");
+      out.write('\n');
 
-    CategoriaDAO dao = new CategoriaDAO();
-    
-    
-    List <Categoria> categorias;
-
-    if(request.getParameter("txtFiltro")!=null && request.getParameter("txtFiltro")!="")
+    //receber a chave primária
+    //buscar o registro correspondente a C.P.
+    //excluir o registro
+    if(request.getParameter("idcategoria") == null)
     {
-        String txtFiltro = request.getParameter("txtFiltro");
-        categorias = dao.listar(txtFiltro);
+        response.sendRedirect("list.jsp");
+        return;
+    }
+    
+    Integer id = Integer.parseInt(request.getParameter("idcategoria"));
+    CategoriaDAO dao = new CategoriaDAO();
+    Categoria obj = dao.buscarPorChavePrimaria(id);
+    String msg = "";
+    if(obj!=null)
+    {
+        dao.excluir(obj);
+        msg = "Registro excluído com sucesso";
     }
     else
     {
-        categorias = dao.listar();
+       msg = "Erro ao excluir o registro"; 
     }
     
+    
+
       out.write("\n");
-      out.write("<style>\n");
-      out.write("   \n");
-      out.write("    .direita\n");
-      out.write("            {\n");
-      out.write("                text-align: right;\n");
-      out.write("                padding-right: 10%;\n");
-      out.write("                \n");
-      out.write("            }\n");
-      out.write("</style>\n");
+      out.write("\n");
       out.write("<section class=\"section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp\">\n");
       out.write("    <div class=\"mdl-card mdl-cell mdl-cell--12-col\">\n");
-      out.write("        <div class=\"mdl-card__supporting-text\">\n");
-      out.write("            <h4>Categoria</h4>\n");
-      out.write("            <!-- Colored mini FAB button -->\n");
-      out.write("            <div class=\"direita\">\n");
-      out.write("                <a href=\"add.jsp\">\n");
-      out.write("                    <button class=\"mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored\">\n");
-      out.write("                         <i class=\"material-icons\">add</i>\n");
-      out.write("                    </button>  \n");
-      out.write("                </a>\n");
-      out.write("            </div>\n");
-      out.write("\n");
-      out.write("            <table class=\"mdl-data-table mdl-js-data-table\">\n");
-      out.write("                <thead>\n");
-      out.write("                    <tr>\n");
-      out.write(" ");
-
-                    for (Categoria categoria:categorias) {
-                
-      out.write("\n");
-      out.write("                        <th>ID</th>\n");
-      out.write("                        <th>Nome</th>\n");
-      out.write("                        <th>Ações</th>\n");
-      out.write("                    </tr>\n");
-      out.write("                </thead>\n");
-      out.write("                <tbody>\n");
-      out.write("                    <tr>\n");
-      out.write("                        <th>");
-      out.print(categoria.getId());
-      out.write("</th>\n");
-      out.write("                        <th>");
-      out.print(categoria.getNome());
-      out.write("</th>\n");
-      out.write("                        <td> <div id=\"ttupd\" class=\"icon material-icons\">\n");
-      out.write("                                <i class=\"material-icons\"><a href=\"upd.jsp?idcategoria=");
-      out.print(categoria.getId());
-      out.write("\">update</a></i>\n");
-      out.write("                            </div>\n");
-      out.write("                            <div class=\"mdl-tooltip\" for=\"ttupd\">\n");
-      out.write("                                Atualizar\n");
-      out.write("                            </div>\n");
-      out.write("                        </td><td>\n");
-      out.write("                        <div id=\"ttdel\" class=\"icon material-icons\">\n");
-      out.write("                              <i class=\"material-icons\"><a href=\"del-ok.jsp?idcategoria=");
-      out.print(categoria.getId() );
-      out.write("\">delete</a></i>\n");
-      out.write("                            </div>\n");
-      out.write("                            <div class=\"mdl-tooltip\" for=\"ttdel\">\n");
-      out.write("                                Excluir\n");
-      out.write("                            </div>\n");
-      out.write("                    </td>\n");
-      out.write("                            <!-- \n");
-      out.write("                                Atualizar \n");
-      out.write("                            -->\n");
-      out.write("                           \n");
-      out.write("                            <!-- \n");
-      out.write("                                Excluir \n");
-      out.write("                            -->\n");
-      out.write("                            \n");
-      out.write("                     \n");
-      out.write("                       \n");
-      out.write("                    </tr>\n");
-      out.write("                    ");
- }; 
-      out.write("\n");
-      out.write("                </tbody>\n");
-      out.write("            </table>   \n");
+      out.write("        <div class=\"mdl-card__supporting-text \">\n");
+      out.write("            <h4>Categoria - Excluir</h4>\n");
+      out.write("            <p>");
+      out.print(msg);
+      out.write("</p>\n");
+      out.write("            <a href=\"list.jsp\"><i class=\"material-icons\">list</i></a>\n");
+      out.write("            \n");
       out.write("        </div>\n");
       out.write("\n");
       out.write("    </div>\n");

@@ -5,7 +5,7 @@
 <%
     //buscar as informacoes do formulario
     String nome= request.getParameter("txtNome");
-    Integer id=Integer.parseInt(request.getParameter("txtId"));
+    
    
     
     
@@ -14,7 +14,7 @@
     
     //Adiciono os valores enviados 
     categoria.setNome(nome);
-    categoria.setId(id);
+   
     
     
     // instanciar minha classe de acesso  a dados

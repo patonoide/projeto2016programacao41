@@ -3,6 +3,12 @@ package org.apache.jsp.admin.pergunta;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import modelo.Categoria;
+import java.util.List;
+import dao.CategoriaDAO;
+import modelo.Pergunta;
+import modelo.Pergunta;
+import dao.PerguntaDAO;
 
 public final class upd_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -47,6 +53,12 @@ public final class upd_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("<!doctype html>\n");
       out.write("\n");
       out.write("<html lang=\"pt-br\">\n");
@@ -97,40 +109,114 @@ public final class upd_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        </div>\n");
       out.write("        <div class=\" mdl-js-ripple-effect mdl-color--primary-dark\">\n");
       out.write("          <a href=\"../index.jsp\" class=\"mdl-layout__tab\">Inicial</a>\n");
-      out.write("          <a href=\"../categoria/add.jsp\" class=\"mdl-layout__tab\">Categoria</a>\n");
-      out.write("          <a href=\"../jogador/add.jsp\" class=\"mdl-layout__tab\">Jogador</a>\n");
-      out.write("          \n");
+      out.write("          <a href=\"../categoria/list.jsp\" class=\"mdl-layout__tab\">Categoria</a>\n");
+      out.write("          <a href=\"../jogador/list.jsp\" class=\"mdl-layout__tab\">Jogador</a>\n");
+      out.write("          <a href=\"../pergunta/list.jsp\" class=\"mdl-layout__tab\">Pergunta</a>\n");
+      out.write("\n");
       out.write("        </div>\n");
       out.write("      </header>\n");
       out.write("      <main class=\"mdl-layout__content\">\n");
       out.write("        <div class=\"mdl-layout__tab-panel is-active\" id=\"overview\">\n");
-      out.write("\n");
+      out.write('\n');
+
+ 
+  
+    String id = request.getParameter("idpergunta");
+    PerguntaDAO dao = new PerguntaDAO();
+    Pergunta per = dao.buscarPorChavePrimaria(Integer.parseInt(id));
+ 
+    
+    
+    
+    
+
+    CategoriaDAO cDAO = new CategoriaDAO();
+    List<Categoria> cLista = cDAO.listar();
+//listagem de professores
+    
+
+
       out.write("\n");
       out.write("<section class=\"section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp\">\n");
       out.write("    <div class=\"mdl-card mdl-cell mdl-cell--12-col\">\n");
       out.write("        <div class=\"mdl-card__supporting-text\">\n");
       out.write("            <h4>Categoria - Atualizar</h4>\n");
-      out.write("            <form action=\"upd-ok.jsp\" method=\"post\">\n");
+      out.write("            <form action=\"upd-ok.jsp\" >\n");
       out.write("                <!-- \n");
       out.write("                    primeira div -- área que ocupará o campo de formulário\n");
       out.write("                    segunda div -- campo de texto e label \n");
       out.write("                -->\n");
+      out.write("               \n");
       out.write("                <div class=\"mdl-cell--12-col\"> \n");
       out.write("                    <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n");
-      out.write("                        <input class=\"mdl-textfield__input\" type=\"text\" required  id=\"txtNome\" />\n");
-      out.write("                        <label class=\"mdl-textfield__label\" for=\"txtNome\">Nome</label>\n");
+      out.write("                        <input class=\"mdl-textfield__input\" type=\"text\" required  name=\"txtEnunciado\" />\n");
+      out.write("                        <label class=\"mdl-textfield__label\" for=\"txtEnunciado\">Enunciado</label>\n");
+      out.write("                    </div>\n");
+      out.write("                  \n");
+      out.write("                <div class=\"mdl-cell--12-col\"> \n");
+      out.write("                     <div class=\"mdl-select mdl-js-select mdl-select--floating-label\"> \n");
+      out.write("                         <select class=\"mdl-select__input\" id=\"professsion\" name=\"selCategoria\"> \n");
+      out.write("                ");
+           
+                    String selected = "";
+                    for (Categoria c : cLista) {
+                        if (c.getId() == per.getCategoria().getId()){
+                            selected="selected";
+                        }
+                
+      out.write("\n");
+      out.write("                              \n");
+      out.write("                             <option value=\"");
+c.getId();
+      out.write('"');
+      out.print(selected);
+      out.write('>');
+      out.print(c);
+      out.write("</option> \n");
+      out.write("                             ");
+
+                    selected="";
+                    } 
+                             
+      out.write("\n");
+      out.write("                         </select> \n");
+      out.write("                         <label class=\"mdl-select__label\" for=\"selCategoria\">Categoria</label> \n");
+      out.write("                     </div> \n");
+      out.write("                 </div> \n");
+      out.write("\n");
+      out.write("                <div class=\"mdl-cell--12-col\"> \n");
+      out.write("                    <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n");
+      out.write("                        <input class=\"mdl-textfield__input\" type=\"text\" required  name=\"txtRc\" />\n");
+      out.write("                        <label class=\"mdl-textfield__label\" for=\"txtRc\">Resposta Certa</label>\n");
+      out.write("                    </div>\n");
+      out.write("                </div><div class=\"mdl-cell--12-col\"> \n");
+      out.write("                    <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n");
+      out.write("                        <input class=\"mdl-textfield__input\" type=\"text\" required  name=\"txtNivel\" />\n");
+      out.write("                        <label class=\"mdl-textfield__label\" for=\"txtNivel\">Nivel</label>\n");
       out.write("                    </div>\n");
       out.write("                </div>\n");
-      out.write("                <div class=\"mdl-cell--12-col\">\n");
-      out.write("                    <div class=\"mdl-select mdl-js-select mdl-select--floating-label\">\n");
-      out.write("                        <select class=\"mdl-select__input\" id=\"professsion\" name=\"professsion\">\n");
-      out.write("                            <option value=\"\"></option>\n");
-      out.write("                            <option value=\"option1\">Branco</option>\n");
-      out.write("                            <option value=\"option2\">Esbranquissado</option>\n");
-      out.write("                            <option value=\"option3\">Cor do MJ</option>\n");
-      out.write("                            \n");
-      out.write("                        </select>\n");
-      out.write("                        <label class=\"mdl-select__label\" for=\"professsion\">Exemplo Select</label>\n");
+      out.write("                <div class=\"mdl-cell--12-col\"> \n");
+      out.write("                    <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n");
+      out.write("                        <input class=\"mdl-textfield__input\" type=\"text\" required  name=\"txtA\" />\n");
+      out.write("                        <label class=\"mdl-textfield__label\" for=\"txtA\">Resposta A</label>\n");
+      out.write("                    </div>\n");
+      out.write("                </div>\n");
+      out.write("                <div class=\"mdl-cell--12-col\"> \n");
+      out.write("                    <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n");
+      out.write("                        <input class=\"mdl-textfield__input\" type=\"text\" required  name=\"txtB\" />\n");
+      out.write("                        <label class=\"mdl-textfield__label\" for=\"txtB\">Resposta B</label>\n");
+      out.write("                    </div>\n");
+      out.write("                </div>\n");
+      out.write("                <div class=\"mdl-cell--12-col\"> \n");
+      out.write("                    <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n");
+      out.write("                        <input class=\"mdl-textfield__input\" type=\"text\" required  name=\"txtC\" />\n");
+      out.write("                        <label class=\"mdl-textfield__label\" for=\"txtC\">Resposta C</label>\n");
+      out.write("                    </div>\n");
+      out.write("                </div>\n");
+      out.write("                <div class=\"mdl-cell--12-col\"> \n");
+      out.write("                    <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n");
+      out.write("                        <input class=\"mdl-textfield__input\" type=\"text\" required  name=\"txtD\" />\n");
+      out.write("                        <label class=\"mdl-textfield__label\" for=\"txtD\">Resposta D</label>\n");
       out.write("                    </div>\n");
       out.write("                </div>\n");
       out.write("                <div class=\"mdl-cell--12-col\">\n");

@@ -1,0 +1,22 @@
+SMAP
+del_002dok_jsp.java
+JSP
+*S JSP
+*F
++ 0 del-ok.jsp
+admin/categoria/del-ok.jsp
++ 1 cabecalho.jsp
+admin/categoria/../cabecalho.jsp
++ 2 rodape.jsp
+admin/categoria/../rodape.jsp
+*L
+1,4:52
+1#1,59:55
+4#0:113
+9,22:118
+30,6:140
+36:146,3
+37,9:149
+1#2,26:157
+45#0,2:182
+*E
