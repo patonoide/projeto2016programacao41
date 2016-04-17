@@ -55,13 +55,10 @@
         <div class="painelUsuario">
            <%=jogador.getLogin()%><br />
            
-            <%if(jogo.getPontuacao()>=500)
-                System.out.println(jogo.getPontuacao()-500);else
-                
-                System.out.println("0");
+            <%=jogo.getPontuacao()%>
             %> errar<br/>
             <%=jogo.getPontuacao()%> parar<br/>
-            <%=jogo.getPontuacao()+500%>acertar<br/>
+            <%=jogo.getPontuacao()%>acertar<br/>
             
             
         </div>
