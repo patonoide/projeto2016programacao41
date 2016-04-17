@@ -26,7 +26,8 @@ import javax.xml.bind.annotation.XmlTransient;
 @Table(name = "jogador")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Jogador.findAll", query = "SELECT j FROM Jogador j")})
+    @NamedQuery(name = "Jogador.findAll", query = "SELECT j FROM Jogador j"),
+    @NamedQuery(name = "Jogador.realizarLogin", query = "SELECT j FROM Jogador j where j.login= :login and j.senha=:senha")})
 public class Jogador implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id

@@ -36,13 +36,13 @@
                
                 <div class="mdl-cell--12-col"> 
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" required  name="txtEnunciado" />
+                        <input class="mdl-textfield__input" type="text" required  name="txtEnunciado"  value="<%=per.getEnunciado()%>"/>
                         <label class="mdl-textfield__label" for="txtEnunciado">Enunciado</label>
                     </div>
                   
                 <div class="mdl-cell--12-col"> 
                      <div class="mdl-select mdl-js-select mdl-select--floating-label"> 
-                         <select class="mdl-select__input" id="professsion" name="selCategoria"> 
+                         <select class="mdl-select__input" id="professsion" name="selCategoria"  > 
                 <%           
                     String selected="";
                     for (Categoria c : cLista) {
@@ -63,36 +63,36 @@
 
                 <div class="mdl-cell--12-col"> 
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" required  name="txtRc" />
+                        <input class="mdl-textfield__input" type="text" required  name="txtRc" value="<%=per.getCerta()%>"/>
                         <label class="mdl-textfield__label" for="txtRc">Resposta Certa</label>
                     </div>
                 </div><div class="mdl-cell--12-col"> 
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" required  name="txtNivel" />
+                        <input class="mdl-textfield__input" type="text" required  name="txtNivel" value="<%=per.getNivel()%>"/>
                         <label class="mdl-textfield__label" for="txtNivel">Nivel</label>
                     </div>
                 </div>
                 <div class="mdl-cell--12-col"> 
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" required  name="txtA" />
+                        <input class="mdl-textfield__input" type="text" required  name="txtA" value="<%=per.getA()%>"/>
                         <label class="mdl-textfield__label" for="txtA">Resposta A</label>
                     </div>
                 </div>
                 <div class="mdl-cell--12-col"> 
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" required  name="txtB" />
+                        <input class="mdl-textfield__input" type="text" required  name="txtB" value="<%=per.getB()%>"/>
                         <label class="mdl-textfield__label" for="txtB">Resposta B</label>
                     </div>
                 </div>
                 <div class="mdl-cell--12-col"> 
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" required  name="txtC" />
+                        <input class="mdl-textfield__input" type="text" required  name="txtC" value="<%=per.getC()%>"/>
                         <label class="mdl-textfield__label" for="txtC">Resposta C</label>
                     </div>
                 </div>
                 <div class="mdl-cell--12-col"> 
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" required  name="txtD" />
+                        <input class="mdl-textfield__input" type="text" required  name="txtD" value="<%=per.getD()%>"/>
                         <label class="mdl-textfield__label" for="txtD">Resposta D</label>
                     </div>
                 </div>

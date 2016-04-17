@@ -1,13 +1,10 @@
-package org.apache.jsp.admin.categoria;
+package org.apache.jsp.admin;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-import modelo.Categoria;
-import java.util.List;
-import dao.CategoriaDAO;
 
-public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class perguntas_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -16,8 +13,8 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   static {
     _jspx_dependants = new java.util.ArrayList<String>(2);
-    _jspx_dependants.add("/admin/categoria/../cabecalho.jsp");
-    _jspx_dependants.add("/admin/categoria/../rodape.jsp");
+    _jspx_dependants.add("/admin/cabecalho-index.jsp");
+    _jspx_dependants.add("/admin/rodape-index.jsp");
   }
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
@@ -50,10 +47,8 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
+      out.write('\n');
+      out.write('\n');
       out.write("<!doctype html>\n");
       out.write("\n");
       out.write("<html lang=\"pt-br\">\n");
@@ -66,13 +61,13 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("        <!-- Add to homescreen for Chrome on Android -->\n");
       out.write("        <meta name=\"mobile-web-app-capable\" content=\"yes\">\n");
-      out.write("        <link rel=\"icon\" sizes=\"192x192\" href=\"../images/touch/chrome-touch-icon-192x192.png\">\n");
+      out.write("        <link rel=\"icon\" sizes=\"192x192\" href=\"images/touch/chrome-touch-icon-192x192.png\">\n");
       out.write("\n");
       out.write("        <!-- Add to homescreen for Safari on iOS -->\n");
       out.write("        <meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\n");
       out.write("        <meta name=\"apple-mobile-web-app-status-bar-style\" content=\"black\">\n");
       out.write("        <meta name=\"apple-mobile-web-app-title\" content=\"Material Design Lite\">\n");
-      out.write("        <link rel=\"apple-touch-icon-precomposed\" href=\"../apple-touch-icon-precomposed.png\">\n");
+      out.write("        <link rel=\"apple-touch-icon-precomposed\" href=\"apple-touch-icon-precomposed.png\">\n");
       out.write("\n");
       out.write("        <!-- Tile icon for Win8 (144x144 + tile color) -->\n");
       out.write("        <meta name=\"msapplication-TileImage\" content=\"images/touch/ms-touch-icon-144x144-precomposed.png\">\n");
@@ -80,15 +75,14 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("        <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->\n");
       out.write("        <!--\n");
-      out.write("        <link rel=\"canonical\" href=\"../http://www.example.com/\">\n");
+      out.write("        <link rel=\"canonical\" href=\"http://www.example.com/\">\n");
       out.write("        -->\n");
       out.write("\n");
       out.write("        <link href=\"https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en\" rel=\"stylesheet\">\n");
       out.write("        <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\"\n");
       out.write("              rel=\"stylesheet\">\n");
-      out.write("        <link rel=\"stylesheet\" href=\"../mdl/material.min.css\">\n");
-      out.write("        <link rel=\"stylesheet\" href=\"../mdl/styles.css\">\n");
-      out.write("        \n");
+      out.write("        <link rel=\"stylesheet\" href=\"mdl/material.min.css\">\n");
+      out.write("        <link rel=\"stylesheet\" href=\"mdl/styles.css\">\n");
       out.write("       \n");
       out.write("    </head>\n");
       out.write("    \n");
@@ -103,118 +97,56 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <div class=\"mdl-layout--large-screen-only mdl-layout__header-row\">\n");
       out.write("        </div>\n");
       out.write("        <div class=\" mdl-js-ripple-effect mdl-color--primary-dark\">\n");
-      out.write("          <a href=\"../index.jsp\" class=\"mdl-layout__tab\">Inicial</a>\n");
-      out.write("          <a href=\"../categoria/list.jsp\" class=\"mdl-layout__tab\">Categoria</a>\n");
-      out.write("          <a href=\"../jogador/list.jsp\" class=\"mdl-layout__tab\">Jogador</a>\n");
-      out.write("          <a href=\"../pergunta/list.jsp\" class=\"mdl-layout__tab\">Pergunta</a>\n");
-      out.write("\n");
+      out.write("          <a href=\"index.jsp\" class=\"mdl-layout__tab\">Inicial</a>\n");
+      out.write("          <a href=\"categoria/list.jsp\" class=\"mdl-layout__tab\">Categoria</a>\n");
+      out.write("          <a href=\"jogador/list.jsp\" class=\"mdl-layout__tab\">Jogador</a>\n");
+      out.write("          <a href=\"pergunta/list.jsp\" class=\"mdl-layout__tab\">Pergunta</a>\n");
       out.write("        </div>\n");
       out.write("      </header>\n");
       out.write("      <main class=\"mdl-layout__content\">\n");
       out.write("        <div class=\"mdl-layout__tab-panel is-active\" id=\"overview\">\n");
+      out.write("<script src=\"mdl/material.min.js\"></script>\n");
+      out.write("<script src=\"mdl/jquery-2.1.4.min.js\"></script>");
       out.write("\n");
-      out.write("<!-- gambiarra pra alinhar o botão a esquerda-->\n");
-      out.write(" ");
-
-    CategoriaDAO dao = new CategoriaDAO();
-    
-    
-    List <Categoria> categorias;
-
-    if(request.getParameter("txtFiltro")!=null && request.getParameter("txtFiltro")!="")
-    {
-        String txtFiltro = request.getParameter("txtFiltro");
-        categorias = dao.listar(txtFiltro);
-    }
-    else
-    {
-        categorias = dao.listar();
-    }
-    
       out.write("\n");
-      out.write("<style>\n");
-      out.write("   \n");
-      out.write("    .direita\n");
-      out.write("            {\n");
-      out.write("                text-align: right;\n");
-      out.write("                padding-right: 10%;\n");
-      out.write("                \n");
-      out.write("            }\n");
-      out.write("</style>\n");
+      out.write("\n");
       out.write("<section class=\"section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp\">\n");
       out.write("    <div class=\"mdl-card mdl-cell mdl-cell--12-col\">\n");
       out.write("        <div class=\"mdl-card__supporting-text\">\n");
-      out.write("            <h4>Categoria</h4>\n");
-      out.write("            <!-- Colored mini FAB button -->\n");
-      out.write("            <div class=\"direita\">\n");
-      out.write("                <a href=\"add.jsp\">\n");
-      out.write("                    <button class=\"mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored\">\n");
-      out.write("                         <i class=\"material-icons\">add</i>\n");
-      out.write("                    </button>  \n");
-      out.write("                </a>\n");
-      out.write("            </div>\n");
-      out.write("\n");
-      out.write("            <table class=\"mdl-data-table mdl-js-data-table\">\n");
-      out.write("                <thead>\n");
-      out.write("                    <tr>\n");
-      out.write("                         <th>ID</th>\n");
-      out.write("                        <th>Nome</th>\n");
-      out.write("                        <th>Ações</th>\n");
-      out.write("                    </tr>\n");
-      out.write(" ");
-
-                    for (Categoria categoria:categorias) {
-                
-      out.write("\n");
-      out.write("                       \n");
-      out.write("                </thead>\n");
-      out.write("                <tbody>\n");
-      out.write("                    <tr>\n");
-      out.write("                        <th>");
-      out.print(categoria.getId());
-      out.write("</th>\n");
-      out.write("                        <th>");
-      out.print(categoria.getNome());
-      out.write("</th>\n");
-      out.write("                        <td> <div id=\"ttupd\" class=\"icon material-icons\">\n");
-      out.write("                                <i class=\"material-icons\"><a href=\"upd.jsp?idcategoria=");
-      out.print(categoria.getId());
-      out.write("\">update</a></i>\n");
-      out.write("                            </div>\n");
-      out.write("                            <div class=\"mdl-tooltip\" for=\"ttupd\">\n");
-      out.write("                                Atualizar\n");
-      out.write("                            </div>\n");
-      out.write("                        </td><td>\n");
-      out.write("                        <div id=\"ttdel\" class=\"icon material-icons\">\n");
-      out.write("                              <i class=\"material-icons\"><a href=\"del-ok.jsp?idcategoria=");
-      out.print(categoria.getId() );
-      out.write("\">delete</a></i>\n");
-      out.write("                            </div>\n");
-      out.write("                            <div class=\"mdl-tooltip\" for=\"ttdel\">\n");
-      out.write("                                Excluir\n");
-      out.write("                            </div>\n");
-      out.write("                    </td>\n");
-      out.write("                            <!-- \n");
-      out.write("                                Atualizar \n");
-      out.write("                            -->\n");
-      out.write("                           \n");
-      out.write("                            <!-- \n");
-      out.write("                                Excluir \n");
-      out.write("                            -->\n");
-      out.write("                            \n");
-      out.write("                     \n");
-      out.write("                       \n");
-      out.write("                    </tr>\n");
-      out.write("                    ");
- }; 
-      out.write("\n");
-      out.write("                </tbody>\n");
-      out.write("            </table>   \n");
+      out.write("            <center>\n");
+      out.write("            <h4>Responda as perguntas</h4>\n");
+      out.write("            </br>\n");
+      out.write("            \n");
+      out.write("            \n");
+      out.write("            \n");
       out.write("        </div>\n");
-      out.write("\n");
-      out.write("    </div>\n");
-      out.write("\n");
+      out.write("        <ul class=\"demo-list-item mdl-list\">\n");
+      out.write("  <li class=\"mdl-list__item\">\n");
+      out.write("    <span class=\"mdl-list__item-primary-content\">\n");
+      out.write("      pergunta 1\n");
+      out.write("    </span>\n");
+      out.write("  </li>\n");
+      out.write("   <div class=\"mdl-cell--12-col\"> \n");
+      out.write("                     <div class=\"mdl-select mdl-js-select mdl-select--floating-label\"> \n");
+      out.write("             \n");
+      out.write("                              \n");
+      out.write("                             <option value=\"\"></option> \n");
+      out.write("                            \n");
+      out.write("                         </select> \n");
+      out.write("                         <label class=\"mdl-select__label\" for=\"selCategoria\">resposta</label> \n");
+      out.write("                     </div> \n");
+      out.write("                 </div> \n");
+      out.write(" \n");
+      out.write("</ul>\n");
       out.write("</section>\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("<script>\n");
+      out.write("    $('.bxslider').bxSlider({\n");
+      out.write("  mode: 'fade',\n");
+      out.write("  captions: true\n");
+      out.write("});\n");
+      out.write("</script>\n");
       out.write("\n");
       out.write(" \n");
       out.write("<section class=\"section--footer mdl-color--white mdl-grid\">\n");
@@ -234,14 +166,13 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("</footer>\n");
       out.write("</main>\n");
       out.write("</div>\n");
-      out.write("<script src=\"../mdl/material.min.js\"></script>\n");
-      out.write("<script src=\"../mdl/jquery-2.1.4.min.js\"></script>\n");
-      out.write("<script src=\"../mdl/complemento.js\"></script>\n");
+      out.write("<script src=\"mdl/material.min.js\"></script>\n");
+      out.write("<script src=\"mdl/jquery-2.1.4.min.js\"></script>\n");
+      out.write("\n");
       out.write("</body>\n");
       out.write("</html>\n");
       out.write("\n");
       out.write("\n");
-      out.write('\n');
       out.write('\n');
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){

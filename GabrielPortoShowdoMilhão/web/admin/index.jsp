@@ -1,6 +1,39 @@
+
 <%@include file="cabecalho-index.jsp"%>
+<%@page import="modelo.Jogador"%>
+<%@page import="dao.JogadorDAO"%>
+<%
+    
+    
+    if(request.getParameter("sair")!=null)
+    {
+        session.setAttribute("usuarioAdmin",null);
+    }
+    
+    if(request.getParameter("txtLogin")!=null && request.getParameter("txtSenha")!=null)
+    {
+     
+    
+    String login = request.getParameter("txtLogin").toString();
+    String senha = request.getParameter("txtSenha").toString();
+    if(login.equals("Admin")&& senha.equals("Admin"))
+    {
+        session.setAttribute("usuarioAdmin", login);
+    }
+    else 
+    {
+        response.sendRedirect("index.jsp");
+    }
+     String mensagem = "";
+ 
+        
+        
+     
+        
 
+}
 
+%>
 <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
     <div class="mdl-card mdl-cell mdl-cell--12-col">
         <div class="mdl-card__supporting-text">
@@ -11,31 +44,32 @@
             
             
             <center>
-<form action="#">
-  <div class="mdl-textfield mdl-js-textfield">
-    <input class="mdl-textfield__input" type="text" id="sample1">
-    <label class="mdl-textfield__label" for="sample1">Usúario</label>
+<form action="index.jsp" method="post">
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <input class="mdl-textfield__input" type="text" name="txtLogin" id="txtLogin">
+    <label class="mdl-textfield__label" for="txtLogin">Login</label>
   </div>
-</form>
+    </br>
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <input class="mdl-textfield__input" type="password" name="txtSenha" id="txtSenha">
+    <label class="mdl-textfield__label" for="txtSenha">Senha</label>
+  </div>
 
-<form action="#">
-  <div class="mdl-textfield mdl-js-textfield">
-    <input class="mdl-textfield__input" type="password" id="sample1">
-    <label class="mdl-textfield__label" for="sample1">Senha</label>
-  </div>
-</form>
 
             
-            
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+            </br>
+            <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
  Entrar
 
-</button>
+</button>   
+
+    
             </center>
+             </form>
         </div>
 
     </div>
-
+   
 </section>
 
 

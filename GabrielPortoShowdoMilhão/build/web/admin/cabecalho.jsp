@@ -1,5 +1,11 @@
 <!doctype html>
+<%if(session.getAttribute("usuarioAdmin")==null)
+{
+    response.sendRedirect("../login.jsp");
+    
+}
 
+%>
 <html lang="pt-br">
     <head>
         <meta charset="utf-8">

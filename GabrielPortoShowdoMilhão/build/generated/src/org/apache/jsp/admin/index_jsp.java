@@ -3,6 +3,8 @@ package org.apache.jsp.admin;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import modelo.Jogador;
+import dao.JogadorDAO;
 
 public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -47,6 +49,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write('\n');
       out.write("<!doctype html>\n");
       out.write("\n");
       out.write("<html lang=\"pt-br\">\n");
@@ -108,6 +111,39 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
+
+    
+    
+    if(request.getParameter("sair")!=null)
+    {
+        session.setAttribute("usuarioAdmin",null);
+    }
+    
+    if(request.getParameter("txtLogin")!=null && request.getParameter("txtSenha")!=null)
+    {
+     
+    
+    String login = request.getParameter("txtLogin").toString();
+    String senha = request.getParameter("txtSenha").toString();
+    if(login.equals("Admin")&& senha.equals("Admin"))
+    {
+        session.setAttribute("usuarioAdmin", login);
+    }
+    else 
+    {
+        response.sendRedirect("index.jsp");
+    }
+     String mensagem = "";
+ 
+        
+        
+     
+        
+
+}
+
+
+      out.write("\n");
       out.write("<section class=\"section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp\">\n");
       out.write("    <div class=\"mdl-card mdl-cell mdl-cell--12-col\">\n");
       out.write("        <div class=\"mdl-card__supporting-text\">\n");
@@ -118,31 +154,32 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            \n");
       out.write("            \n");
       out.write("            <center>\n");
-      out.write("<form action=\"#\">\n");
-      out.write("  <div class=\"mdl-textfield mdl-js-textfield\">\n");
-      out.write("    <input class=\"mdl-textfield__input\" type=\"text\" id=\"sample1\">\n");
-      out.write("    <label class=\"mdl-textfield__label\" for=\"sample1\">Usúario</label>\n");
+      out.write("<form action=\"index.jsp\" method=\"post\">\n");
+      out.write("  <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n");
+      out.write("    <input class=\"mdl-textfield__input\" type=\"text\" name=\"txtLogin\" id=\"txtLogin\">\n");
+      out.write("    <label class=\"mdl-textfield__label\" for=\"txtLogin\">Login</label>\n");
       out.write("  </div>\n");
-      out.write("</form>\n");
+      out.write("    </br>\n");
+      out.write("  <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n");
+      out.write("    <input class=\"mdl-textfield__input\" type=\"password\" name=\"txtSenha\" id=\"txtSenha\">\n");
+      out.write("    <label class=\"mdl-textfield__label\" for=\"txtSenha\">Senha</label>\n");
+      out.write("  </div>\n");
       out.write("\n");
-      out.write("<form action=\"#\">\n");
-      out.write("  <div class=\"mdl-textfield mdl-js-textfield\">\n");
-      out.write("    <input class=\"mdl-textfield__input\" type=\"text\" id=\"sample1\">\n");
-      out.write("    <label class=\"mdl-textfield__label\" for=\"sample1\">Senha</label>\n");
-      out.write("  </div>\n");
-      out.write("</form>\n");
       out.write("\n");
       out.write("            \n");
-      out.write("            \n");
-      out.write("            <button class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored\">\n");
+      out.write("            </br>\n");
+      out.write("            <button type=\"submit\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored\">\n");
       out.write(" Entrar\n");
       out.write("\n");
-      out.write("</button>\n");
+      out.write("</button>   \n");
+      out.write("\n");
+      out.write("    \n");
       out.write("            </center>\n");
+      out.write("             </form>\n");
       out.write("        </div>\n");
       out.write("\n");
       out.write("    </div>\n");
-      out.write("\n");
+      out.write("   \n");
       out.write("</section>\n");
       out.write("\n");
       out.write("\n");

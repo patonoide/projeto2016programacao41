@@ -43,8 +43,8 @@
 <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
     <div class="mdl-card mdl-cell mdl-cell--12-col">
         <div class="mdl-card__supporting-text ">
-            <h4>Jogador - Cadastrar</h4>
-            <p>Jogador cadastrado com sucesso.</p>
+            <h4>Pergunta - Cadastrar</h4>
+            <p>Pergunta cadastrada com sucesso.</p>
             <a href="list.jsp"><i class="material-icons">list</i></a>
             
         </div>
