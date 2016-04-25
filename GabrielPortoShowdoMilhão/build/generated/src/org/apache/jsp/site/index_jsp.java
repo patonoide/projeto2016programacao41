@@ -107,6 +107,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <div class=\"centralizar\">\n");
       out.write("                <hr/>\n");
       out.write("                ou\n");
+      out.write("                <a href=\"index.jsp?txtEntrarLogin=anonimo;txtEntrarSenha=anonimo\">Entrar Anonimo</a>\n");
       out.write("                <hr/>\n");
       out.write("            </div>\n");
       out.write("            <h4>Cadastre-se</h4>\n");

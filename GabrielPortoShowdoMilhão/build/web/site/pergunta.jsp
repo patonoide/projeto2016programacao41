@@ -12,12 +12,38 @@
 <%@page import="modelo.Jogo"  %>
 <%
     Jogador jogador = (Jogador)session.getAttribute("jogador");
-    Jogo jogo = new Jogo();
+   
     PerguntaDAO perg = new PerguntaDAO();
     List<Pergunta> lista= perg.listar();
-    jogo.setPerguntas(lista);
+   Jogo jogo;
+   if(session.getAttribute("jogo")!=null){
+       jogo = (Jogo)session.getAttribute("jogo");
+       
+   }else{
+       jogo = new Jogo();
+   }
+    
+     
+      jogo.setPerguntas(lista);
+    if(request.getParameter("btnConfirmar")!=null){
+        String opcaomarcada = request.getParameter("rdoConfirmar");
+        jogo.Confirmar(opcaomarcada);
+    }
+    else{
+        if(request.getParameter("btnPular")!=null){
+            jogo.Pular();
+        }else{
+            if(request.getParameter("btnParar")!=null){
+                response.sendRedirect("fim.jsp");
+            }else{
+                jogo.iniciar();
+            }
+        }
+    }
+    
     Pergunta pergunta = jogo.getPerguntas().get(0);
     session.setAttribute("jogo",jogo);
+    
     
          
     
