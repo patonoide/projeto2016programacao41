@@ -4,6 +4,9 @@
     Author     : marcelosiedler
 --%>
 
+<%@page import="modelo.Ranking"%>
+<%@page import="java.util.List"%>
+<%@page import="dao.RankingDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,11 +20,24 @@
         <a href="jogo.jsp">Jogar novamente</a>
         <hr />
         <h4>TOP 10</h4>
-        <ol>
+         <%
+            RankingDAO dao = new RankingDAO();
              
-            <li>Lombardi</li>
+            List<Ranking> lista = dao.listarTop();
             
-        </ol>
+            for (Ranking rk: lista) {
+            %>
+            <tr>
+                <th> 
+                <th><%=rk.getJogador()%></th>
+                <th><%=rk.getPontos()%></th>
+            </tr>
+            
+            <%
+        
+            }
+            
+            %>
         
         
     </body>

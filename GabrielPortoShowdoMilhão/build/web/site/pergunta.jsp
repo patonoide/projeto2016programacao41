@@ -71,9 +71,9 @@
                     <input type="radio" value="D" name="rdoPergunta" />
                    <%=pergunta.getD()%><br/>
                     <hr/>
-                    <input type="submit" value="confirmar" />
-                     <input type="submit" value="pulou" /><%=jogo.getPulos()%>
-                      <input type="submit" value="parar" />
+                    <input type="submit" value="confirmar" name="btnConfirmar"/>
+                     <input type="submit" value="pulou" name="btnPular"/><%=jogo.getPulos()%> Pulos 
+                      <input type="submit" value="parar" name="btnParar"/>
                 </form>
                 
             </div>
@@ -81,10 +81,10 @@
         <div class="painelUsuario">
            <%=jogador.getLogin()%><br />
            
-            <%=jogo.getPontuacao()%>
-            %> errar<br/>
-            <%=jogo.getPontuacao()%> parar<br/>
-            <%=jogo.getPontuacao()%>acertar<br/>
+            sua pontuação agora: <%=jogo.getPontuacao()%><br /> 
+            <%=jogo.Erro()%> errar<br/>
+            <%=jogo.Parou()%> parar<br/>
+            <%=jogo.Acerto()%>acertar<br/>
             
             
         </div>

@@ -44,11 +44,7 @@ public class JogadorDAO {
             
             throw e;
             
-        } finally {
-            
-            em.close();
-            
-        }
+        } 
         
     }
     
@@ -97,11 +93,7 @@ public class JogadorDAO {
             
             throw e;
             
-        } finally {
-            
-            em.close();
-            
-        }
+        } 
         
     }
     
@@ -119,11 +111,7 @@ public class JogadorDAO {
             
             em.getTransaction().rollback();
             
-        } finally {
-            
-            em.close();
-            
-        }
+        } 
         
     }
      public Jogador buscarPorChavePrimaria(String login){
@@ -133,6 +121,6 @@ public class JogadorDAO {
     public void fechaEmf() {
         
         Conexao.closeConexao();
-        
+        em.close();;
     }
 }

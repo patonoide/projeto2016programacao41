@@ -44,11 +44,7 @@ public class RankingDAO {
             
             throw e;
             
-        } finally {
-            
-            em.close();
-            
-        }
+        } 
         
     }
     
@@ -84,11 +80,7 @@ public class RankingDAO {
             
             throw e;
             
-        } finally {
-            
-            em.close();
-            
-        }
+        } 
         
     }
     
@@ -106,21 +98,20 @@ public class RankingDAO {
             
             em.getTransaction().rollback();
             
-        } finally {
-            
-            em.close();
-            
-        }
+        } 
         
     }
      public Ranking buscarPorChavePrimaria(Integer id){
         return em.find(Ranking.class, id);
     
 }
+     public List<Ranking> listarTop() throws Exception {
+        return em.createNamedQuery("Ranking.top").setMaxResults(10).getResultList();
+    }
     
     public void fechaEmf() {
         
         Conexao.closeConexao();
-        
+        em.close();
     }
 }
