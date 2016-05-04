@@ -4,11 +4,25 @@
     Author     : marcelosiedler
 --%>
 
+<%@page import="java.util.Date"%>
+<%@page import="modelo.Jogador"%>
+<%@page import="modelo.Jogo"%>
 <%@page import="modelo.Ranking"%>
 <%@page import="java.util.List"%>
 <%@page import="dao.RankingDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<!DOCTYPE html><%
+    
+    Jogo jogo = (Jogo) session.getAttribute("jogo");
+    Ranking r = new Ranking();
+    Jogador jogador = (Jogador) session.getAttribute("jogador");
+    r.setData(new Date());
+    r.setJogador(jogador);
+    r.setPontos(jogo.getPontuacao());
+    
+    
+    session.setAttribute("jogo", null);
+    %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
